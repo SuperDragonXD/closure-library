@@ -250,7 +250,7 @@ def main():
 
   output_mode = options.output_mode
   if output_mode == 'list':
-    out.writelines([js_source.GetPath() + '\n' for js_source in deps])
+    out.writelines(([js_source.GetPath() + '\n').encode() for js_source in deps])
   elif output_mode == 'script':
     for js_source in deps:
       src = js_source.GetSource()
